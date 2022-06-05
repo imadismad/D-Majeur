@@ -36,7 +36,6 @@ Cell** tabdifficultychoice(int *sizeX,int *sizeY, int *nbbomb){
 			fflush(stdin);
 		}
 		columns=lines;
-		}
 		bombsmax= lines*columns;
 		while ((nbbombs<1) || (nbbombs>bombsmax)){						//Bombs chosen between 1 and the total size of the array
 			printf("\nNombre de bombes (entre 1 et %d) : ", bombsmax);

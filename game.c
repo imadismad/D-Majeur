@@ -68,6 +68,7 @@ void game(){
 	int duck=1;
 	int choice;
 	int l,c;
+	int dif;
   	int TIMEend,TIMEbeg;
 	int cdt=0;
 	int sizeX, sizeY, nbbomb;													//Initializes all the variables necessary for the game
@@ -75,18 +76,38 @@ void game(){
 	int sortie=0;
 	int ch=menu();																//Player's choice according to the menu
 	if(ch==2){																	//If the player wants to see the highscores, it calls the corresponding function
-		highscores(0,0);
+		printf("Quelle difficulté voulez-vous faire apparaître ?\n(1 pour facile, 2 pour moyen, 3 pour difficile (pas de score pour custom) : ");
+
+		scanf("%d",&dif);
+		printf("\n");
+		highscores(0,0,dif);
+		printf("\n\n");
+		game();
 	}
-	if(ch==3){																	//If the player wants to quit the game, it displays a goodbye message and end the program
+	else if(ch==3){																	//If the player wants to quit the game, it displays a goodbye message and end the program
 		printf("A bientôt !");
+		exit(1);
 	}
-	if(ch==1){																	//If the player chooses to start a game, it starts a game
-		Cell** p=tabdifficultychoice(&sizeX,&sizeY,&nbbomb);					//Initilizes the game board by calling difficultychoice()
-	
+	else if(ch==1){																	//If the player chooses to start a game, it starts a game
+		Cell** p=tabdifficultychoice(&sizeX,&sizeY,&nbbomb);	
+		if(sizeX==9){
+			dif=1;
+			printf("%d",dif);
+		}
+		else if(sizeX==16){
+			dif=2;
+		}
+		else if(sizeX==36){
+			dif=3;
+		}
+		else{
+			dif=0;
+		}				//Initilizes the game board by calling difficultychoice()
+		TIMEbeg=time(NULL);
 		while (duck==1){														//Loop that continues until the game reaches a stopping condition
 		
 			display(p,sizeX,sizeY);												//Displays the array by calling display()
-	    		TIMEbeg=time(NULL);
+	    		
 			do{
 				printf("Voulez-vous révéler une cellule (1), poser/retirer un marqueur de bombe (2), ou retourner au menu (3) ?\nVotre choix : ");
 				scanf("%d",&choice);
@@ -165,7 +186,7 @@ void game(){
           		int sec,min;
           		timer(&min,&sec,TIMEend-TIMEbeg);
       			printf("\nBravo ! Voici votre temps : \n%d minutes et %d secondes\n\n",min,sec);					//In a winning case, it congratulates the player and displays his time 
-          		highscores(TIMEend-TIMEbeg,1);
+          		highscores(TIMEend-TIMEbeg,1,dif);
     		}
 		printf("\nFin de partie.\nMerci d'avoir joué.\n");
 	}

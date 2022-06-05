@@ -10,11 +10,22 @@ void timer(int* min, int* sec, int ortime){
   *sec=ortime;
 }
 
-void createfc(){
+void createfc(int difficulty){
     FILE* p=NULL;
     User user;
 
-    p=fopen("score.bin", "wb+");
+	if(difficulty==1){
+		p=fopen("score1.bin", "wb+");
+	}
+	else if(difficulty==2){
+		p=fopen("score2.bin", "wb+");	
+	}
+	else if(difficulty==3){
+		p=fopen("score3.bin", "wb+");
+	}
+	else{
+		("Erreur dans la création de sauvegarde");
+	}
     user.username[0]='o';
     user.username[1]='\0';
     user.score=1000000;

@@ -1,17 +1,55 @@
 #include "highscores.h"
 
-void highscores(int score,int use){
+void highscores(int score,int use,int difficulty){
 	if(use==1){
 		User user;
 		printf("Entrez votre pseudo :");
 		scanf("%s",user.username);
 		user.score = score;
-		regScore(user);
+		regScore(user,difficulty);
 	}
 	FILE* p=NULL;
 	User user;
 
-	p=fopen("score.bin", "rb+");
+	if(difficulty==1){
+		p=fopen("score1.bin", "ab+");
+		rewind(p);
+		FILE* p2=fopen("score1.bin", "ab+");
+		if(p==p2){
+			fclose(p2);
+			createfc(difficulty);
+		}
+		if(p==NULL){
+			printf("Erreur dans l'enregistrement.\n");
+			exit(1);
+		}		
+	}
+	else if(difficulty==2){
+		p=fopen("score2.bin", "ab+");
+		rewind(p);
+		FILE* p2=fopen("score2.bin", "ab+");
+		if(p==p2){
+			fclose(p2);
+			createfc(difficulty);
+		}
+		if(p==NULL){
+			printf("Erreur dans l'enregistrement.\n");
+			exit(1);
+		}
+	}
+	else if(difficulty==3){
+		p=fopen("score3.bin", "ab+");
+		rewind(p);
+		FILE* p2=fopen("score3.bin", "ab+");
+		if(p==p2){
+			fclose(p2);
+			createfc(difficulty);
+		}
+		if(p==NULL){
+			printf("Erreur dans l'enregistrement.\n");
+			exit(1);
+		}
+	}
 		
 	while(fread(&user, sizeof(User), 1, p)!=0){
 		printf("\n%s: %d\n", user.username,user.score);
@@ -20,7 +58,7 @@ void highscores(int score,int use){
 
 }
 
-void regScore(User user){
+void regScore(User user,int difficulty){
 	FILE* p=NULL;
 	int position=1;
 	User cow;
@@ -28,13 +66,50 @@ void regScore(User user){
 	int j=0;
 	int scorecopy = user.score;
 
-	p=fopen("score.bin", "wb+");
-	char ch =fgetc(p);
-	printf("%d",ch);
-	if(ch==EOF){
-	createfc();
+	if(difficulty==1){
+		p=fopen("score1.bin", "ab+");
+		rewind(p);
+		FILE* p2=fopen("score1.bin", "ab+");
+		if(p==p2){
+			fclose(p2);
+			createfc(difficulty);
+		}
+		if(p==NULL){
+			printf("Erreur dans l'enregistrement.\n");
+			exit(1);
+		}		
+	}
+	else if(difficulty==2){
+		p=fopen("score2.bin", "ab+");
+		rewind(p);
+		FILE* p2=fopen("score2.bin", "ab+");
+		if(p==p2){
+			fclose(p2);
+			createfc(difficulty);
+		}
+		if(p==NULL){
+			printf("Erreur dans l'enregistrement.\n");
+			exit(1);
+		}
+	}
+	else if(difficulty==3){
+		p=fopen("score3.bin", "ab+");
+		rewind(p);
+		FILE* p2=fopen("score3.bin", "ab+");
+		if(p==p2){
+			fclose(p2);
+			createfc(difficulty);
+		}
+		if(p==NULL){
+			printf("Erreur dans l'enregistrement.\n");
+			exit(1);
+		}
+	}
 	
-	}	
+	else{
+		printf("Pas de high scores pour custom.\n");
+		exit(1);
+	}
 	
 	rewind(p);
 
@@ -44,19 +119,20 @@ void regScore(User user){
 			i=j;
 			verif=1;
 		}
-	j++;
+		j++;
 	}
 
-	if(verif=0){
+	if(verif==0){
 		return ;
 	}
+	printf("\n");
 	rewind(p);
-
-	for(int k=0;k<i-1; k++){
+	printf("%d",i);
+	for(int k=0;k<i; k++){
 		fread(&cow, sizeof(User),1, p);
 	}
 	fwrite(&user, sizeof(User),1, p);
-
+	printf("\n\n");
 	fclose(p);
 }
 

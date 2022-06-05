@@ -12,4 +12,12 @@ typedef struct{										//Definition of the Cell's structure (bomb or not, hidd
 	int flag;
 }Cell;
 
+typedef struct{
+
+    char username[50];
+
+    int score;
+
+}User;
+
 #endif

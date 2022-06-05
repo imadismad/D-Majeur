@@ -5,5 +5,6 @@
 
 void timer(int* min, int* sec, int ortime);
 int flush();
+void createfc();
 
 #endif

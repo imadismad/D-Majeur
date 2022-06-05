@@ -4,15 +4,9 @@
 #include "annex.h"
 
 
-typedef struct{
 
-    char username[50];
 
-    int score;
-
-}User;
-
-void highscores(int use,int score);
-void regScore(User user);
+void highscores(int use,int score,int difficulty);
+void regScore(User user,int difficulty);
 
 #endif

@@ -53,24 +53,24 @@ Cell** tabdifficultychoice(int *sizeX,int *sizeY, int *nbbomb){
 	else if (difficulty == 1){
 		printf("\n");
 		*sizeX = 9;
-		*sizeY = 9;														//Call of createtab with an easy difficulty level
+		*sizeY = 9; 9;														//Call of createtab with an easy difficulty level
 		*nbbomb = 10;
-		return createtab(9,9,10);
+		return createtab(9,9,1);
 	}
 	
 	else if (difficulty == 2){
 		printf("\n");
-		*sizeX = 20;
-		*sizeY = 20;													//Call of createtab with a medium difficulty level
-		*nbbomb = 60;
+		*sizeX = 16;
+		*sizeY = 16; 20;													//Call of createtab with a medium difficulty level
+		*nbbomb = 40;
 		return createtab(20,20,60);
 	}
 	
 	else if (difficulty == 3){
 		printf("\n");
 		*sizeX = 36;
-		*sizeY = 36;													//Call of createtab with a hard difficulty level
-		*nbbomb = 260;
+		*sizeY = 36; 36;													//Call of createtab with a hard difficulty level
+		*nbbomb = 220;
 		return createtab(36,36,260);
 	}
 	else{

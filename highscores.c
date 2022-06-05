@@ -16,11 +16,11 @@ void highscores(int score,int use,int difficulty){
 		printf("Erreur de variable");
 		exit(1);
 	}
-	if((difficulty=<0)||(difficulty>3)){
+	if((difficulty<=0)||(difficulty>3)){
 		printf("Erreur de variable");
 		exit(1);
 	}
-	if((use>1)||(use<0){
+	if((use>1)||(use<0)){
 		printf("Erreur de variable");
 		exit(1);
 	}
@@ -105,7 +105,7 @@ void regScore(User user,int difficulty){
 	None
 	*/
 	
-	if((difficulty=<0)||(difficulty>3)){
+	if((difficulty<=0)||(difficulty>3)){
 		printf("Erreur de variable");
 		exit(1);
 	}

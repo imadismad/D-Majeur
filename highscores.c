@@ -16,8 +16,12 @@ void highscores(int score,int use,int difficulty){
 		printf("Erreur de variable");
 		exit(1);
 	}
-	if((difficulty<=0)||(difficulty>3)){
+	if((difficulty<0)||(difficulty>3)){
 		printf("Erreur de variable");
+		exit(1);
+	}
+	if (difficulty==0){
+		printf("\nPas d'enregistreent des scores pour Custom\n");
 		exit(1);
 	}
 	if((use>1)||(use<0)){

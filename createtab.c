@@ -33,15 +33,18 @@ Cell** tabdifficultychoice(int *sizeX,int *sizeY, int *nbbomb){
 		while ((lines<10) || (lines>50)){								//Rows chosen between 10 and 50
 			printf("\nNombre de lignes (entre 10 et 50) : ");
 			scanf("%d",&lines);
+			fflush(stdin);
 		}
 		while ((columns<10) || (columns>50)){							//Columns chosen between 10 and 50
 			printf("\nNombre de colonnes (entre 10 et 50) : ");
 			scanf("%d",&columns);
+			fflush(stdin);
 		}
 		bombsmax= lines*columns;
 		while ((nbbombs<1) || (nbbombs>bombsmax)){						//Bombs chosen between 1 and the total size of the array
 			printf("\nNombre de bombes (entre 1 et %d) : ", bombsmax);
 			scanf("%d",&nbbombs);
+			fflush(stdin);
 		}
 		printf("\n");
 		*sizeX = lines;
@@ -92,6 +95,18 @@ Cell** createtab(int sizeX,int sizeY, int nbbomb){
 	- p : double pointer that points on an array of sizeX rows and sizeY columns with nbbombs
 	*/
 	
+	if((sizeX>50)||(sizeX<10)){
+		printf("Erreur de taille du tableau");
+		exit(1);
+	}
+	if((sizeY>50)||(sizeY<10)){
+		printf("Erreur de taille du tableau");
+		exit(1);
+	}
+	if((nbbomb>sizeX*sizeY)||(nbbomb<1)){
+		printf("Erreur de nombre de bombes");
+		exit(1);
+	}
 	int i,j;
 	int taille=sizeX*sizeY;
 	Cell **p=NULL;
@@ -147,7 +162,15 @@ void putnumb(Cell **p, int sizeX, int sizeY){
 	*/
 
 
-
+	if((sizeX>50)||(sizeX<10)){
+		printf("Erreur de taille du tableau");
+		exit(1);
+	}
+	if((sizeY>50)||(sizeY<10)){
+		printf("Erreur de taille du tableau");
+		exit(1);
+	}
+	
 	int taille = sizeX * sizeY;
 	int i,j;
 	int b1,b2;

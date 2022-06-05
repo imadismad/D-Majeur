@@ -12,6 +12,14 @@ void display(Cell** p, int sizeX, int sizeY){
 	None
 	*/
 
+	if((sizeX>50)||(sizeX<10)){
+		printf("Erreur de taille du tableau");
+		exit(1);
+	}
+	if((sizeY>50)||(sizeY<10)){
+		printf("Erreur de taille du tableau");
+		exit(1);
+	}
 	for (int i=0 ; i<sizeX+1 ; i++){															//Displays the first row of the table (column's number)
 		if (i>9 && i%2==0){
 			printf(ANSI_COLOR_CYAN "| %d |" ANSI_COLOR_RESET, i);
@@ -112,6 +120,14 @@ void displayEND(Cell** p, int sizeX, int sizeY){
 	None
 	*/
 
+	if((sizeX>50)||(sizeX<10)){
+		printf("Erreur de taille du tableau");
+		exit(1);
+	}
+	if((sizeY>50)||(sizeY<10)){
+		printf("Erreur de taille du tableau");
+		exit(1);
+	}
 	for (int i=0 ; i<sizeX+1 ; i++){													//Displays the first line (column number)
 		if (i>9){
 			printf("| %d |", i);

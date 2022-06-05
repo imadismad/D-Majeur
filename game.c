@@ -51,11 +51,12 @@ int menu(){
 	*/
 	int ch;
 	printf(BHWHT"\n\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~BIENVENUE SUR D-MAJEUR~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n");
-	printf("           Basé sur le célébre jeu demineur et créée par Tom PETIT et Imad-Eddine BOUAAMRI\n");
+	printf("           Basé sur le célèbre jeu démineur et créé par Tom PETIT et Imad-Eddine BOUAAMRI\n");
 	printf("                                Pré-ing 1 ; groupe 5 ; 2021/2022\n\n"ANSI_COLOR_RESET); 
 
 	printf("Que voulez-faire ? \n1.Faire une partie\n2.Voir les highscores\n3.Quitter le jeu\n\nVotre choix : ");		//Asks the player for his choice and calls the demanded program
 	scanf("%d",&ch);
+	fflush(stdin);
 	return ch;
 }
 
@@ -83,6 +84,7 @@ void game(){
 		printf("Quelle difficulté voulez-vous faire apparaître ?\n(1 pour facile, 2 pour moyen, 3 pour difficile (pas de score pour custom) : ");
 
 		scanf("%d",&dif);
+		fflush(stdin);
 		printf("\n");
 		highscores(0,0,dif);
 		printf("\n\n");
@@ -115,21 +117,24 @@ void game(){
 			display(p,sizeX,sizeY);												//Displays the array by calling display()
 	    		
 			do{
-				printf("Voulez-vous révéler une cellule (1), poser/retirer un marqueur de bombe (2), ou retourner au menu (3) ?\nVotre choix : ");
+				printf("\nVoulez-vous révéler une cellule (1), poser/retirer un marqueur de bombe (2), ou retourner au menu (3) ?\nVotre choix : ");
 				scanf("%d",&choice);
+				fflush(stdin);
 			}while ((choice>3) || (choice <1));									////Suggests to the player three game options at each turn
 		
 			if (choice == 1){													//In the case where the player wants to reveal a cell:
 				cdt=1;
 				do{
 					printf("Indiquez la ligne de la cellule : ");
-					scanf("%d",&l);												//Asks the player the row of the cell to reveal
+					scanf("%d",&l);
+					fflush(stdin);												//Asks the player the row of the cell to reveal
 					l-=1;	//Matches the player's choice with the Cell in the array (row 1 for the player is the actual row 0)
 				}while ((l>sizeX) || (l <0));
 	
 				do{
 					printf("Indiquez la colonne de la cellule : ");
-					scanf("%d",&c);												//Demande au joueur la colonne de la cell à révéler
+					scanf("%d",&c);
+					fflush(stdin);												//Demande au joueur la colonne de la cell à révéler
 					c-=1;	//Matches the player's choice with the Cell in the array (row 1 for the player is the actual row 0)
 				}while ((c>sizeY) || (c <0));
 	
@@ -151,13 +156,15 @@ void game(){
 			else if(choice==2){													//Case where the player wants to put a marker on a cell
 				do{
 				printf("Indiquez la ligne de la cellule : ");
-				scanf("%d",&l);													//Asks the player the line of the Cell to interact with
+				scanf("%d",&l);
+				fflush(stdin);													//Asks the player the line of the Cell to interact with
 				l-=1;	//Matches the player's choice with the Cell in the array (row 1 for the player is the actual row 0)
 				}while ((l>sizeX) || (l <0));
 	
 				do{
 				printf("Indiquez la colonne de la cellule : ");
-				scanf("%d",&c);													//Asks the player the column of the Cell to interact with
+				scanf("%d",&c);
+				fflush(stdin);													//Asks the player the column of the Cell to interact with
 				c-=1;	//Matches the player's choice with the Cell in the array (row 1 for the player is the actual row 0)
 				}while ((c>sizeY) || (c <0));
 	

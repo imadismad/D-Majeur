@@ -56,7 +56,7 @@ Cell** tabdifficultychoice(int *sizeX,int *sizeY, int *nbbomb){
 	else if (difficulty == 1){
 		printf("\n");
 		*sizeX = 9;
-		*sizeY = 9; 9;														//Call of createtab with an easy difficulty level
+		*sizeY = 9;														//Call of createtab with an easy difficulty level
 		*nbbomb = 10;
 		return createtab(9,9,10);
 	}
@@ -64,7 +64,7 @@ Cell** tabdifficultychoice(int *sizeX,int *sizeY, int *nbbomb){
 	else if (difficulty == 2){
 		printf("\n");
 		*sizeX = 16;
-		*sizeY = 16; 20;													//Call of createtab with a medium difficulty level
+		*sizeY = 16;													//Call of createtab with a medium difficulty level
 		*nbbomb = 40;
 		return createtab(20,20,60);
 	}
@@ -72,7 +72,7 @@ Cell** tabdifficultychoice(int *sizeX,int *sizeY, int *nbbomb){
 	else if (difficulty == 3){
 		printf("\n");
 		*sizeX = 36;
-		*sizeY = 36; 36;													//Call of createtab with a hard difficulty level
+		*sizeY = 36;													//Call of createtab with a hard difficulty level
 		*nbbomb = 220;
 		return createtab(36,36,260);
 	}
@@ -95,11 +95,11 @@ Cell** createtab(int sizeX,int sizeY, int nbbomb){
 	- p : double pointer that points on an array of sizeX rows and sizeY columns with nbbombs
 	*/
 	
-	if((sizeX>50)||(sizeX<10)){
+	if((sizeX>50)||(sizeX<9)){
 		printf("Erreur de taille du tableau");
 		exit(1);
 	}
-	if((sizeY>50)||(sizeY<10)){
+	if((sizeY>50)||(sizeY<9)){
 		printf("Erreur de taille du tableau");
 		exit(1);
 	}
@@ -162,11 +162,11 @@ void putnumb(Cell **p, int sizeX, int sizeY){
 	*/
 
 
-	if((sizeX>50)||(sizeX<10)){
+	if((sizeX>50)||(sizeX<8)){
 		printf("Erreur de taille du tableau");
 		exit(1);
 	}
-	if((sizeY>50)||(sizeY<10)){
+	if((sizeY>50)||(sizeY<8)){
 		printf("Erreur de taille du tableau");
 		exit(1);
 	}

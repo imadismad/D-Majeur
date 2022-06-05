@@ -12,11 +12,11 @@ void display(Cell** p, int sizeX, int sizeY){
 	None
 	*/
 
-	if((sizeX>50)||(sizeX<10)){
+	if((sizeX>50)||(sizeX<9)){
 		printf("Erreur de taille du tableau");
 		exit(1);
 	}
-	if((sizeY>50)||(sizeY<10)){
+	if((sizeY>50)||(sizeY<9)){
 		printf("Erreur de taille du tableau");
 		exit(1);
 	}
@@ -120,11 +120,11 @@ void displayEND(Cell** p, int sizeX, int sizeY){
 	None
 	*/
 
-	if((sizeX>50)||(sizeX<10)){
+	if((sizeX>50)||(sizeX<9)){
 		printf("Erreur de taille du tableau");
 		exit(1);
 	}
-	if((sizeY>50)||(sizeY<10)){
+	if((sizeY>50)||(sizeY<9)){
 		printf("Erreur de taille du tableau");
 		exit(1);
 	}

@@ -31,14 +31,11 @@ Cell** tabdifficultychoice(int *sizeX,int *sizeY, int *nbbomb){
 		printf("\n");
 		printf("Rentrer les données suivantes :\n");
 		while ((lines<10) || (lines>50)){								//Rows chosen between 10 and 50
-			printf("\nNombre de lignes (entre 10 et 50) : ");
+			printf("\nNombre de lignes / colonnes (entre 10 et 50) : ");
 			scanf("%d",&lines);
 			fflush(stdin);
 		}
-		while ((columns<10) || (columns>50)){							//Columns chosen between 10 and 50
-			printf("\nNombre de colonnes (entre 10 et 50) : ");
-			scanf("%d",&columns);
-			fflush(stdin);
+		columns=lines;
 		}
 		bombsmax= lines*columns;
 		while ((nbbombs<1) || (nbbombs>bombsmax)){						//Bombs chosen between 1 and the total size of the array

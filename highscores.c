@@ -12,8 +12,8 @@ void highscores(int score,int use,int difficulty){
 	User user;
 
 	if(difficulty==1){
-		p=fopen("score1.bin", "ab+");
-		rewind(p);
+		p=fopen("score1.bin", "rb+");
+		//rewind(p);
 		FILE* p2=fopen("score1.bin", "ab+");
 		if(p==p2){
 			fclose(p2);
@@ -25,8 +25,8 @@ void highscores(int score,int use,int difficulty){
 		}		
 	}
 	else if(difficulty==2){
-		p=fopen("score2.bin", "ab+");
-		rewind(p);
+		p=fopen("score2.bin", "rb+");
+		//rewind(p);
 		FILE* p2=fopen("score2.bin", "ab+");
 		if(p==p2){
 			fclose(p2);
@@ -38,8 +38,8 @@ void highscores(int score,int use,int difficulty){
 		}
 	}
 	else if(difficulty==3){
-		p=fopen("score3.bin", "ab+");
-		rewind(p);
+		p=fopen("score3.bin", "rb+");
+		//rewind(p);
 		FILE* p2=fopen("score3.bin", "ab+");
 		if(p==p2){
 			fclose(p2);
@@ -67,8 +67,8 @@ void regScore(User user,int difficulty){
 	int scorecopy = user.score;
 
 	if(difficulty==1){
-		p=fopen("score1.bin", "ab+");
-		rewind(p);
+		p=fopen("score1.bin", "rb+");
+		//rewind(p);
 		FILE* p2=fopen("score1.bin", "ab+");
 		if(p==p2){
 			fclose(p2);
@@ -80,8 +80,8 @@ void regScore(User user,int difficulty){
 		}		
 	}
 	else if(difficulty==2){
-		p=fopen("score2.bin", "ab+");
-		rewind(p);
+		p=fopen("score2.bin", "rb+");
+		//rewind(p);
 		FILE* p2=fopen("score2.bin", "ab+");
 		if(p==p2){
 			fclose(p2);
@@ -93,8 +93,8 @@ void regScore(User user,int difficulty){
 		}
 	}
 	else if(difficulty==3){
-		p=fopen("score3.bin", "ab+");
-		rewind(p);
+		p=fopen("score3.bin", "rb+");
+		//rewind(p);
 		FILE* p2=fopen("score3.bin", "ab+");
 		if(p==p2){
 			fclose(p2);

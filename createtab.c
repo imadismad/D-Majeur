@@ -55,7 +55,7 @@ Cell** tabdifficultychoice(int *sizeX,int *sizeY, int *nbbomb){
 		*sizeX = 9;
 		*sizeY = 9; 9;														//Call of createtab with an easy difficulty level
 		*nbbomb = 10;
-		return createtab(9,9,1);
+		return createtab(9,9,10);
 	}
 	
 	else if (difficulty == 2){

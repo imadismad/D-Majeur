@@ -1,5 +1,5 @@
 CC = gcc
-EXEC = demineur
+EXEC = D-Majeur
 SRC = $(wildcard *.c)
 OBJ = $(SRC:.c=.o)
 

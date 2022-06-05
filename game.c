@@ -50,6 +50,10 @@ int menu(){
 	- integer between 1 and 3 included
 	*/
 	int ch;
+	printf(BHWHT"\n\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~BIENVENUE SUR D-MAJEUR~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n");
+	printf("           Basé sur le célébre jeu demineur et créée par Tom PETIT et Imad-Eddine BOUAAMRI\n");
+	printf("                                Pré-ing 1 ; groupe 5 ; 2021/2022\n\n"ANSI_COLOR_RESET); 
+
 	printf("Que voulez-faire ? \n1.Faire une partie\n2.Voir les highscores\n3.Quitter le jeu\n\nVotre choix : ");		//Asks the player for his choice and calls the demanded program
 	scanf("%d",&ch);
 	return ch;
@@ -89,6 +93,8 @@ void game(){
 		exit(1);
 	}
 	else if(ch==1){																	//If the player chooses to start a game, it starts a game
+		printf(ANSI_COLOR_BACKRDOUD_CYAN"\n-----------------------------REGLES DU JEU-----------------------------\n\n\n");
+		printf("Chaque cellule de la grille peut soit cacher une mine, soit être vide. Le but du jeu est de découvrir toutes les cases libres sans faire exploser les mines.\nLorsque le joueur entre les coordonnées d’une case libre comportant au moins une mine dans l'une de ses cases avoisinantes, un chiffre apparaît, indiquant ce nombre de mines.\nSi en revanche toutes les cases adjacentes sont vides, une case vide est affichée et la même opération est répétée sur ces cases, et ce jusqu'à ce que la zone vide soit entièrement délimitée\npar des chiffres.\n\nEn comparant les différentes informations récoltées, le joueur peut ainsi progresser dans le déminage du terrain. S'il se trompe et rentre les coordonnées d’une case contenant une mine, il a perdu.\nOn peut signaler les cases contenant des mines présumées par un drapeau en rentrant ses coordonnées. Il faut faire attention à ne pas signaler une case saine par un drapeau,car cela peut induire\nen erreur ; ce n'est toutefois pas aussi pénalisant que de découvrir une mine.\n\nLe jeu est chronométré, ce qui permet de conserver les meilleurs scores.\n\n\n"ANSI_COLOR_RESET);
 		Cell** p=tabdifficultychoice(&sizeX,&sizeY,&nbbomb);	
 		if(sizeX==9){
 			dif=1;
@@ -176,7 +182,7 @@ void game(){
 					}
 				}
 			}
-      //system("clear");
+system("clear");
 					
 		}
     		TIMEend=time(NULL);
